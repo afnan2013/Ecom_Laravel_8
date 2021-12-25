@@ -36,7 +36,7 @@
 
                 <div class="form-group">
                     <label for="product_desc" class="control-label mb-1">Product Description</label>
-                    <textarea id="product_desc" value="{{$product_desc}}" name="product_desc" type="text" class="form-control" aria-required="true" aria-invalid="false" required></textarea>
+                    <textarea id="product_desc" name="product_desc" type="text" class="form-control" aria-required="true" aria-invalid="false" required>{{$product_desc}}</textarea>
                     @error('product_desc')
                         <div class="alert alert-danger" role="alert">
                             {{$message}}
@@ -76,7 +76,7 @@
 
                 <div class="form-group">
                     <label for="image" class="control-label mb-1">Product Image</label>
-                    <input id="image" name="image" type="file" class="form-control-file" aria-required="true" aria-invalid="false" required>
+                    <input id="image" name="image" type="file" class="form-control-file" aria-required="true" aria-invalid="false">
                     @error('product_image')
                         <div class="alert alert-danger" role="alert">
                             {{$message}}
