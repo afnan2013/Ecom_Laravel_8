@@ -3,7 +3,7 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
-use App\Http\Controllers\UserController;
+
 
 use Illuminate\Support\Facades\Route;
 
@@ -18,7 +18,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [UserController::class, 'index']);
+Route::get('/', function () {
+    return view('welcome');
+});
 
 Route::get('admin', [AdminController::class, 'index']);
 Route::post('admin/auth', [AdminController::class, 'auth'])->name('admin.auth');
@@ -37,7 +39,7 @@ Route::group(['middleware'=>'admin_auth'], function(){
     Route::get('admin/product/manage_product', [ProductController::class, 'manage_product']);
     Route::get('admin/product/manage_product/{id}', [ProductController::class, 'manage_product']);
     Route::post('admin/product/manage_product_process', [ProductController::class, 'manage_product_process'])->name('product.manage_product_process');
-    Route::get('admin/product/delete/{id}', [ProductController::class, 'delete']);
+
 
     Route::get('admin/logout', function (){
         session()->forget('ADMIN_LOGIN');
@@ -45,7 +47,6 @@ Route::group(['middleware'=>'admin_auth'], function(){
         session()->flash('error', 'Logged Out Successfully');
         return redirect('admin');
     });
-
 
 
 });
