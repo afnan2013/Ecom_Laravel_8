@@ -19,6 +19,14 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [UserController::class, 'index']);
+Route::get('login', [UserController::class, 'login']);
+Route::post('login', [UserController::class, 'login_user']);
+Route::get('register', [UserController::class, 'register']);
+Route::post('register', [UserController::class, 'add_user'])->name('user.register');
+
+Route::get('productDetail/{id}', [ProductController::class, 'productDetail']);
+Route::get('cart', [UserController::class, 'cart']);
+Route::get('checkout', [UserController::class, 'checkout']);
 
 Route::get('admin', [AdminController::class, 'index']);
 Route::post('admin/auth', [AdminController::class, 'auth'])->name('admin.auth');

@@ -29,26 +29,13 @@
 	<!--header-->
 	<header id="header" class="header header-style-1">
 		<div class="container-fluid">
-			<div class="row">				
-
-				<div class="topbar-menu-area">
-					<div class="container">
-						<div class="topbar-menu left-menu">
-							<ul>
-								<li class="menu-item" >
-									<a title="Hotline: (+123) 456 789" href="#" ><span class="icon label-before fa fa-mobile"></span>Hotline: (+123) 456 789</a>
-								</li>
-							</ul>
-						</div>
-						
-					</div>
-				</div>
+			<div class="row">
 
 				<div class="container">
 					<div class="mid-section main-info-area">
 
 						<div class="wrap-logo-top left-section">
-							<a href="index.html" class="link-to-home"><img src="assets/images/logo-top-1.png" alt="mercado"></a>
+							<a href="" class="link-to-home"><h1 style="color: #444444;">E-Medicine Shop</h1></a>
 						</div>
 
 					</div>
@@ -62,18 +49,19 @@
 								<li class="menu-item home-icon">
 									<a href="index.html" class="link-term mercado-item-title"><i class="fa fa-home" aria-hidden="true"></i></a>
 								</li>
+
 								<li class="menu-item">
-									<a href="about-us.html" class="link-term mercado-item-title">About Us</a>
+									<a href="{{url('/')}}" class="link-term mercado-item-title">Shop</a>
 								</li>
 								<li class="menu-item">
-									<a href="shop.html" class="link-term mercado-item-title">Shop</a>
+									<a href="{{url('cart')}}" class="link-term mercado-item-title">Cart</a>
 								</li>
 								<li class="menu-item">
-									<a href="cart.html" class="link-term mercado-item-title">Cart</a>
+									<a href="{{url('login')}}" class="link-term mercado-item-title">Login</a>
 								</li>
-								<li class="menu-item">
-									<a href="contact-us.html" class="link-term mercado-item-title">Contact Us</a>
-								</li>								
+                                <li class="menu-item">
+									<a href="{{url('register')}}" class="link-term mercado-item-title">Register</a>
+								</li>
 							</ul>
 						</div>
 					</div>
@@ -83,11 +71,11 @@
 	</header>
 
 	<!--main area-->
-	<main id="main" class="main-site left-sidebar">
+	<main id="main" class="main-site">
 		<div class="container">
             @section('container')
             @show
-				
+
 		</div><!--end container-->
 
 	</main>
@@ -121,7 +109,7 @@
 											<li>
 												<i class="fa fa-envelope" aria-hidden="true"></i>
 												<p class="contact-txt">Contact@yourcompany.com</p>
-											</li>											
+											</li>
 										</ul>
 									</div>
 								</div>
@@ -247,10 +235,10 @@
 					<div class="coppy-right-item item-right">
 						<div class="wrap-nav horizontal-nav">
 							<ul>
-								<li class="menu-item"><a href="about-us.html" class="link-term">About us</a></li>								
+								<li class="menu-item"><a href="about-us.html" class="link-term">About us</a></li>
 								<li class="menu-item"><a href="privacy-policy.html" class="link-term">Privacy Policy</a></li>
 								<li class="menu-item"><a href="terms-conditions.html" class="link-term">Terms & Conditions</a></li>
-								<li class="menu-item"><a href="return-policy.html" class="link-term">Return Policy</a></li>								
+								<li class="menu-item"><a href="return-policy.html" class="link-term">Return Policy</a></li>
 							</ul>
 						</div>
 					</div>
@@ -260,13 +248,13 @@
 		</div>
 	</footer>
 
-	<script src="assets/js/jquery-1.12.4.minb8ff.js?ver=1.12.4"></script>
-	<script src="assets/js/jquery-ui-1.12.4.minb8ff.js?ver=1.12.4"></script>
-	<script src="assets/js/bootstrap.min.js"></script>
-	<script src="assets/js/chosen.jquery.min.js"></script>
-	<script src="assets/js/owl.carousel.min.js"></script>
-	<script src="assets/js/jquery.countdown.min.js"></script>
-	<script src="assets/js/jquery.sticky.js"></script>
-	<script src="assets/js/functions.js"></script>
+	<script src="{{asset('client_assets/js/jquery-1.12.4.minb8ff.js?ver=1.12.4')}}"></script>
+	<script src="{{asset('client_assets/js/jquery-ui-1.12.4.minb8ff.js?ver=1.12.4')}}"></script>
+	<script src="{{asset('client_assets/js/bootstrap.min.js')}}"></script>
+	<script src="{{asset('client_assets/js/chosen.jquery.min.js')}}"></script>
+	<script src="{{asset('client_assets/js/owl.carousel.min.js')}}"></script>
+	<script src="{{asset('client_assets/js/jquery.countdown.min.js')}}"></script>
+	<script src="{{asset('client_assets/js/jquery.sticky.js')}}"></script>
+	<script src="{{asset('client_assets/js/functions.js')}}"></script>
 </body>
 </html>

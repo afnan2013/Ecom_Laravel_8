@@ -15,7 +15,7 @@ class ProductController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {   
+    {
         $result['data'] = Product:: All();
         return view('admin/product', $result);
     }
@@ -57,7 +57,7 @@ class ProductController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function manage_product_process(Request $request)
-    {   
+    {
 
         // return $request->post();
         $request->validate([
@@ -102,7 +102,7 @@ class ProductController extends Controller
         $product->quantity= $request->post('quantity');
 
         $product->save();
-    
+
         $request->session()->flash('message', $msg);
         return redirect('admin/product');
 
@@ -145,9 +145,10 @@ class ProductController extends Controller
      * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Product $product)
+    public function productDetail(Request $request, $id)
     {
-        //
+        $product['product'] = Product:: find($id);
+        return view('user.details', $product);
     }
 
     /**
