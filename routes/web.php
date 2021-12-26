@@ -23,10 +23,21 @@ Route::get('login', [UserController::class, 'login']);
 Route::post('login', [UserController::class, 'login_user']);
 Route::get('register', [UserController::class, 'register']);
 Route::post('register', [UserController::class, 'add_user'])->name('user.register');
-
 Route::get('productDetail/{id}', [ProductController::class, 'productDetail']);
-Route::get('cart', [UserController::class, 'cart']);
-Route::get('checkout', [UserController::class, 'checkout']);
+
+Route::group(['middleware'=>'user_auth'], function(){
+    Route::get('cart', [UserController::class, 'cart']);
+    Route::get('checkout', [UserController::class, 'checkout']);
+    Route::get('logout', function (){
+        session()->forget('USER_LOGIN');
+        session()->forget('USER_ID');
+        session()->forget('USER_EMAIL');
+        session()->forget('USER_NAME');
+        session()->flash('error', 'Logged Out Successfully');
+        return redirect('login');
+    });
+});
+
 
 Route::get('admin', [AdminController::class, 'index']);
 Route::post('admin/auth', [AdminController::class, 'auth'])->name('admin.auth');

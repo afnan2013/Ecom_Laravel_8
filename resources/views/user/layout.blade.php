@@ -56,12 +56,23 @@
 								<li class="menu-item">
 									<a href="{{url('cart')}}" class="link-term mercado-item-title">Cart</a>
 								</li>
+
+                                @if(!Session::has('USER_LOGIN'))
 								<li class="menu-item">
 									<a href="{{url('login')}}" class="link-term mercado-item-title">Login</a>
 								</li>
                                 <li class="menu-item">
 									<a href="{{url('register')}}" class="link-term mercado-item-title">Register</a>
 								</li>
+                                @endif
+
+                                @if(Session::has('USER_LOGIN'))
+                                    <li class="menu-item pull-right">
+
+                                        <a href="{{url('logout')}}" class="link-term mercado-item-title">Logout</a>
+
+                                    </li>
+                                @endif
 							</ul>
 						</div>
 					</div>
