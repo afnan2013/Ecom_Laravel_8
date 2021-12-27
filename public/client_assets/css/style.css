@@ -4034,6 +4034,10 @@ article.single-post blockquote p:last-child::after{
     border-radius: 50%;
     position: relative; 
 }
+
+.wrap-iten-in-cart .products-cart .quantity .input-group .form-control {
+    width: 80px;
+}
 .wrap-iten-in-cart .products-cart .quantity .quantity-input .btn::after,
 .wrap-iten-in-cart .products-cart .quantity .quantity-input .btn::before{
     position: absolute;

@@ -19,7 +19,7 @@
                         <a href="#" class="product-name"><span>{{$list->product_name}}</span></a>
                         <div class="wrap-price"><span class="product-price">Offer: {{$list->sale_price}} Tk (Per Piece) </span></div>
                         <div class="wrap-price"><span class="product-price">Regular: {{$list->regular_price}} Tk (Per Piece) </span></div>
-                        <a href="#" class="btn add-to-cart">Add To Cart</a>
+                        <a href="cart/add/{{$list->id}}/nutral" class="btn add-to-cart">Add To Cart</a>
                     </div>
                 </div>
             </li>

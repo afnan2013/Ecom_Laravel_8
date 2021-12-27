@@ -4,6 +4,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\CartController;
 
 use Illuminate\Support\Facades\Route;
 
@@ -26,7 +27,10 @@ Route::post('register', [UserController::class, 'add_user'])->name('user.registe
 Route::get('productDetail/{id}', [ProductController::class, 'productDetail']);
 
 Route::group(['middleware'=>'user_auth'], function(){
-    Route::get('cart', [UserController::class, 'cart']);
+    Route::get('cart', [CartController::class, 'index']);
+    Route::get('cart/add/{id}/{change}', [CartController::class, 'manage_cart']);
+    Route::get('cart/delete/{id}/', [CartController::class, 'delete_cart']);
+    
     Route::get('checkout', [UserController::class, 'checkout']);
     Route::get('logout', function (){
         session()->forget('USER_LOGIN');
@@ -36,6 +40,8 @@ Route::group(['middleware'=>'user_auth'], function(){
         session()->flash('error', 'Logged Out Successfully');
         return redirect('login');
     });
+
+
 });
 
 
