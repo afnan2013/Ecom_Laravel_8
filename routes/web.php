@@ -5,6 +5,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\OrderController;
 
 use Illuminate\Support\Facades\Route;
 
@@ -30,6 +31,8 @@ Route::group(['middleware'=>'user_auth'], function(){
     Route::get('cart', [CartController::class, 'index']);
     Route::get('cart/add/{id}/{change}', [CartController::class, 'manage_cart']);
     Route::get('cart/delete/{id}/', [CartController::class, 'delete_cart']);
+
+    Route::post('order/place', [OrderController::class, 'place_order'])->name('order.place_order');
     
     Route::get('checkout', [UserController::class, 'checkout']);
     Route::get('logout', function (){

@@ -19,6 +19,8 @@ class CreateCartsTable extends Migration
             $table->string('product_id');
             $table->string('amount');
             $table->string('price');
+            $table->string('order_active');
+            $table->string('order_id');
             $table->timestamps();
         });
     }

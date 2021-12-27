@@ -35,7 +35,7 @@ class CartController extends Controller
      */
     public function manage_cart(Request $request, $id='', $change)
     {
-        $arr = Cart::where(['user_id' => session('USER_ID'), 'product_id'=> $id])->get();
+        $arr = Cart::where(['user_id' => session('USER_ID'), 'product_id'=> $id, 'order_active'=>'false'])->get();
 
         $product = Product::find($id);
 
@@ -44,7 +44,10 @@ class CartController extends Controller
             $cart->amount = 1; 
             $cart->user_id = session('USER_ID'); 
             $cart->product_id = $id; 
+            $cart->order_active = "false"; 
+            $cart->order_id = 0; 
             $cart->price = $product->sale_price * $cart->amount;
+
         }else{
             $cart = $arr['0'];
             if ($change=="reduce"){
