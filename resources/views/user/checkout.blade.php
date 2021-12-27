@@ -15,37 +15,37 @@
             @csrf
             <p class="row-in-form">
                 <label for="fname">first name<span>*</span></label>
-                <input id="fname" type="text" name="fname" value="" placeholder="Your name">
+                <input id="fname" type="text" name="fname" value="" placeholder="Your name" required>
             </p>
             <p class="row-in-form">
                 <label for="lname">last name<span>*</span></label>
-                <input id="lname" type="text" name="lname" value="" placeholder="Your last name">
+                <input id="lname" type="text" name="lname" value="" placeholder="Your last name" required>
             </p>
             <p class="row-in-form">
                 <label for="email">Email Addreess:</label>
-                <input id="email" type="email" name="email" value="" placeholder="Type your email">
+                <input id="email" type="email" name="email" value="" placeholder="Type your email" required>
             </p>
             <p class="row-in-form">
                 <label for="phone">Phone number<span>*</span></label>
-                <input id="phone" type="number" name="phone" value="" placeholder="10 digits format">
+                <input id="phone" type="number" name="phone" value="" placeholder="10 digits format" required>
             </p>
             <p class="row-in-form">
                 <label for="add">Address:</label>
-                <input id="add" type="text" name="add" value="" placeholder="Street at apartment number">
+                <input id="add" type="text" name="add" value="" placeholder="Street at apartment number" required>
             </p>
             <p class="row-in-form">
                 <label for="country">Country<span>*</span></label>
-                <input id="country" type="text" name="country" value="" placeholder="United States">
+                <input id="country" type="text" name="country" value="" placeholder="United States" required>
             </p>
             <p class="row-in-form">
                 <label for="zip_code">Postcode / ZIP:</label>
-                <input id="zip_code" type="number" name="zip_code" value="" placeholder="Your postal code">
+                <input id="zip_code" type="number" name="zip_code" value="" placeholder="Your postal code" required>
             </p>
             <p class="row-in-form">
                 <label for="city">Town / City<span>*</span></label>
-                <input id="city" type="text" name="city" value="" placeholder="City name">
+                <input id="city" type="text" name="city" value="" placeholder="City name" required>
             </p>
-            
+            <input type="hidden" name="bill" value="{{$sum}}">
             <div class="summary summary-checkout">
                 <div class="summary-item payment-method">
                     <h4 class="title-box">Payment Method</h4>
@@ -69,7 +69,7 @@
                             <span class="payment-desc">card if you don't have a paypal account</span>
                         </label>
                     </div>
-                    <p class="summary-info grand-total"><span>Grand Total</span> <span class="grand-total-price">$100.00</span></p>
+                    <p class="summary-info grand-total"><span>Grand Total</span> <span class="grand-total-price">{{$sum}} Tk</span></p>
                     <div>
                         <button id="payment-button" type="submit" class="btn btn-lg btn-info btn-block">Place order now</button>
                     </div>
@@ -89,7 +89,7 @@
             </div>
         </form>
     </div>
-    
+
 
 
 </div><!--end main content area-->

@@ -27,6 +27,7 @@ class CreateOrdersTable extends Migration
             $table->string('bill');
             $table->string('order_id');
             $table->string('user_id');
+            $table->string('delivery');
             $table->timestamps();
         });
     }

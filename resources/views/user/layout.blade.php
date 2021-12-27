@@ -56,6 +56,9 @@
 								<li class="menu-item">
 									<a href="{{url('cart')}}" class="link-term mercado-item-title">Cart</a>
 								</li>
+                                <li class="menu-item">
+									<a href="{{url('order')}}" class="link-term mercado-item-title">Order</a>
+								</li>
 
                                 @if(!Session::has('USER_LOGIN'))
 								<li class="menu-item">
@@ -64,6 +67,7 @@
                                 <li class="menu-item">
 									<a href="{{url('register')}}" class="link-term mercado-item-title">Register</a>
 								</li>
+
                                 @endif
 
                                 @if(Session::has('USER_LOGIN'))

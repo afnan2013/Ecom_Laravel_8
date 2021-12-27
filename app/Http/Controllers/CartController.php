@@ -14,11 +14,11 @@ class CartController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {   
+    {
         $result['data'] = Cart::join('products', 'products.id', '=', 'carts.product_id')
                     ->where(['carts.user_id' => session('USER_ID')])
                     ->get(['carts.product_id','products.product_name', 'products.imagePath', 'products.sale_price', 'carts.amount', 'carts.price']);
-        
+
         // echo $result;
         $sum =0;
         foreach ($result['data'] as $list){
@@ -41,23 +41,23 @@ class CartController extends Controller
 
         if (sizeof($arr)==0){
             $cart = new Cart();
-            $cart->amount = 1; 
-            $cart->user_id = session('USER_ID'); 
-            $cart->product_id = $id; 
-            $cart->order_active = "false"; 
-            $cart->order_id = 0; 
+            $cart->amount = 1;
+            $cart->user_id = session('USER_ID');
+            $cart->product_id = $id;
+            $cart->order_active = "false";
+            $cart->order_id = 0;
             $cart->price = $product->sale_price * $cart->amount;
 
         }else{
             $cart = $arr['0'];
             if ($change=="reduce"){
-                $cart->amount -= 1; 
+                $cart->amount -= 1;
             }else{
-                $cart->amount += 1; 
+                $cart->amount += 1;
             }
             $cart->price = $product->sale_price * $cart->amount;
         }
-        
+
         $cart->save();
         if ($change == "nutral"){
             $request->session()->flash('message', "Product Added to Cart");
@@ -65,7 +65,7 @@ class CartController extends Controller
         }else{
             return redirect('cart');
         }
-        
+
     }
 
     /**
@@ -88,9 +88,9 @@ class CartController extends Controller
      * @param  \App\Models\Cart  $cart
      * @return \Illuminate\Http\Response
      */
-    public function show(Cart $cart)
-    {
-        //
+    public function checkout(Request $request, $sum){
+        $result['sum'] = $sum;
+        return view('user.checkout', $result);
     }
 
     /**

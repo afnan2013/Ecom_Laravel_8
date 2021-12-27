@@ -26,7 +26,7 @@ class OrderController extends Controller
     public function place_order(Request $request)
     {
         //return $request->post();
-        $random_number = rand(); 
+        $random_number = rand();
 
         $order = new Order();
         $order->fname = $request->post('fname');
@@ -37,9 +37,10 @@ class OrderController extends Controller
         $order->zip_code = $request->post('zip_code');
         $order->city = $request->post('city');
         $order->country = $request->post('country');
-        $order->bill = 400 || $request->post('bill');
+        $order->bill = $request->post('bill');
         $order->order_id = $random_number;
         $order->user_id = session('USER_ID');
+        $order->delivery = 'false';
 
         $order->save();
 

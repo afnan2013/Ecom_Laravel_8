@@ -12,10 +12,10 @@
 
     <div class="wrap-iten-in-cart">
         <h3 class="box-title">Medicines Name</h3>
-        
+
         <ul class="products-cart">
             @foreach ($data as $list)
-            
+
             <li class="pr-cart-item">
                 <div class="product-image">
                     <figure><img src="{{asset('uploads/products/'.$list->imagePath)}}" alt=""></figure>
@@ -30,7 +30,7 @@
                         <a class="btn btn-increase" href="cart/add/{{$list->product_id}}/increase"></a>
                         <a class="btn btn-reduce" href="cart/add/{{$list->product_id}}/reduce"></a>
                     </div> -->
-                    
+
                     <div class="input-group">
                         <a class="btn btn-reduce" href="cart/add/{{$list->product_id}}/increase"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a>
                         <a class="btn btn-increase" href="cart/add/{{$list->product_id}}/reduce"><span class="glyphicon glyphicon-minus" aria-hidden="true"></span></a>
@@ -40,7 +40,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="price-field sub-total"><p class="price">{{$list->price}} Tk</p></div>
                 <div>
                     <a href="cart/delete/{{$list->product_id}}" class="btn btn-delete" title="">
@@ -50,7 +50,7 @@
                 </div>
             </li>
             @endforeach
-            
+
         </ul>
     </div>
 
@@ -65,7 +65,7 @@
             <label class="checkbox-field">
                 <input class="frm-input " name="have-code" id="have-code" value="" type="checkbox"><span>I have promo code</span>
             </label>
-            <a class="btn btn-checkout" href="checkout">Check out</a>
+            <a class="btn btn-checkout" href="checkout/{{$sum}}">Check out</a>
             <a class="link-to-shop" href="shop.html">Continue Shopping<i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
         </div>
         <div class="update-clear">
