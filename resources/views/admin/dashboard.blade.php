@@ -4,7 +4,7 @@
 {{session('message')}};
 <h1 class="m-b-15">All Orders</h1>
 
-<a href="product/manage_product">
+<a href="order/manage_order">
     <button class="btn btn-success" type="submit">Add Order</button>
 </a>
 <div class="row m-t-30">
@@ -27,15 +27,13 @@
             <tbody>
                 @foreach($data as $list)
                 <tr>
-                    <td>{{$list->id}}</td>
-                    <td>
-                        <img src="{{asset('uploads/products/'.$list->imagePath)}}" width="70px;" height="70px;" alt="{{$list->product_name}}">
-                    </td>
-                    <td>{{$list->product_name}}</td>
-                    <td>{{$list->product_slug}}</td>
-                    <td>{{$list->regular_price}}</td>
-                    <td>{{$list->sale_price}}</td>
-                    <td>{{$list->quantity}}</td>
+                    <td>{{$list->order_id}}</td>
+                    <td>{{$list->fname}}</td>
+                    <td>{{$list->lname}}</td>
+                    <td>{{$list->email}}</td>
+                    <td>{{$list->phnone}}</td>
+                    <td>{{$list->bill}}</td>
+                    <td>{{$list->delivery}}</td>
                     <td>
                     <a href="product/delete/{{$list->id}}"><button type="button" class="btn btn-danger">Delete</button></a>
                     <a href="product/manage_product/{{$list->id}}"><button type="button" class="btn btn-success">Edit</button></a>

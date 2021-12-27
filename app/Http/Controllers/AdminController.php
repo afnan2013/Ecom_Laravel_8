@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Admin;
+use App\Models\Order;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
@@ -41,7 +42,7 @@ class AdminController extends Controller
                 $request->session()->flash('error', 'Please enter correct password');
                 return redirect('admin');
             }
-            
+
         }else{
             $request->session()->flash('error', 'Please enter valid credentials');
             return redirect('admin');
@@ -58,7 +59,8 @@ class AdminController extends Controller
 
     public function dashboard()
     {
-        return view('admin.dashboard');
+        $result['data'] = Order:: All();
+        return view('admin/dashboard',$result);
     }
 
     /**

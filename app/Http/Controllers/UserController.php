@@ -65,12 +65,7 @@ class UserController extends Controller
         return redirect('login');
     }
 
-    public function cart(Request $request){
-        return view('user.cart');
-    }
 
-    public function checkout(Request $request){
-        return view('user.checkout');
-    }
+
 
 }
