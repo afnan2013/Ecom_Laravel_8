@@ -16,7 +16,7 @@ class CartController extends Controller
     public function index()
     {
         $result['data'] = Cart::join('products', 'products.id', '=', 'carts.product_id')
-                    ->where(['carts.user_id' => session('USER_ID')])
+                    ->where(['carts.user_id' => session('USER_ID'),'carts.order_active' =>'false'])
                     ->get(['carts.product_id','products.product_name', 'products.imagePath', 'products.sale_price', 'carts.amount', 'carts.price']);
 
         // echo $result;

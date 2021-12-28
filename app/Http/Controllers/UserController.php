@@ -64,8 +64,4 @@ class UserController extends Controller
         $request->session()->flash('message', 'User Added Successfully. Please login now');
         return redirect('login');
     }
-
-
-
-
 }

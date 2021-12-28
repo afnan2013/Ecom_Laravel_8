@@ -34,6 +34,10 @@ Route::group(['middleware'=>'user_auth'], function(){
     Route::get('checkout/{sum}', [CartController::class, 'checkout']);
 
     Route::get('order', [OrderController::class, 'index']);
+    Route::get('order/delete/{id}', [OrderController::class, 'delete']);
+    Route::get('order/{id}/{admin}', [OrderController::class, 'order_detail']);
+    
+
     Route::post('order/place', [OrderController::class, 'place_order'])->name('order.place_order');
 
     Route::get('logout', function (){
@@ -55,6 +59,9 @@ Route::get('admin/updatepassword', [AdminController::class, 'updatepassword']);
 
 Route::group(['middleware'=>'admin_auth'], function(){
     Route::get('admin/dashboard', [AdminController::class, 'dashboard']);
+    Route::get('admin/order/delete/{id}', [OrderController::class, 'delete']);
+    Route::get('admin/order/{id}/{admin}', [OrderController::class, 'order_detail']);
+    
 
     Route::get('admin/category', [CategoryController::class, 'index']);
     Route::get('admin/category/manage_category', [CategoryController::class, 'manage_category']);
@@ -67,6 +74,8 @@ Route::group(['middleware'=>'admin_auth'], function(){
     Route::get('admin/product/manage_product/{id}', [ProductController::class, 'manage_product']);
     Route::post('admin/product/manage_product_process', [ProductController::class, 'manage_product_process'])->name('product.manage_product_process');
     Route::get('admin/product/delete/{id}', [ProductController::class, 'delete']);
+
+    
 
     Route::get('admin/logout', function (){
         session()->forget('ADMIN_LOGIN');

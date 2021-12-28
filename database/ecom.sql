@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 27, 2021 at 05:33 PM
+-- Generation Time: Dec 28, 2021 at 07:00 PM
 -- Server version: 10.4.22-MariaDB
--- PHP Version: 8.0.13
+-- PHP Version: 8.1.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -65,8 +65,20 @@ CREATE TABLE `carts` (
 --
 
 INSERT INTO `carts` (`id`, `user_id`, `product_id`, `amount`, `price`, `order_active`, `order_id`, `created_at`, `updated_at`) VALUES
-(1, '3', '1', '1', '1.5', 'true', '1753561222', '2021-12-27 09:52:50', '2021-12-27 09:55:03'),
-(2, '3', '2', '3', '18', 'true', '1753561222', '2021-12-27 09:52:53', '2021-12-27 09:55:03');
+(1, '3', '1', '2', '3', 'true', '1953754236', '2021-12-27 17:56:20', '2021-12-27 17:59:47'),
+(2, '3', '2', '3', '18', 'true', '1953754236', '2021-12-27 17:56:22', '2021-12-27 17:59:47'),
+(3, '3', '3', '1', '4.5', 'true', '1953754236', '2021-12-27 17:56:30', '2021-12-27 17:59:47'),
+(4, '2', '5', '20', '160', 'true', '736243078', '2021-12-27 18:01:14', '2021-12-27 18:02:14'),
+(5, '1', '3', '15', '67.5', 'true', '1490925790', '2021-12-27 18:02:52', '2021-12-27 18:03:36'),
+(6, '3', '5', '8', '64', 'true', '317868349', '2021-12-28 09:16:21', '2021-12-28 09:16:50'),
+(7, '3', '4', '9', '45', 'true', '317868349', '2021-12-28 09:16:24', '2021-12-28 09:16:50'),
+(8, '3', '1', '2', '3', 'true', '1531876571', '2021-12-28 09:20:21', '2021-12-28 09:58:39'),
+(9, '3', '3', '1', '4.5', 'true', '1531876571', '2021-12-28 09:58:29', '2021-12-28 09:58:39'),
+(10, '3', '1', '1', '1.5', 'true', '133916951', '2021-12-28 10:05:13', '2021-12-28 10:05:32'),
+(11, '3', '2', '1', '6', 'true', '133916951', '2021-12-28 10:05:14', '2021-12-28 10:05:32'),
+(12, '3', '3', '1', '4.5', 'true', '133916951', '2021-12-28 10:05:15', '2021-12-28 10:05:32'),
+(13, '3', '4', '1', '5', 'true', '133916951', '2021-12-28 10:05:15', '2021-12-28 10:05:32'),
+(14, '3', '5', '1', '8', 'true', '133916951', '2021-12-28 10:05:19', '2021-12-28 10:05:32');
 
 -- --------------------------------------------------------
 
@@ -129,8 +141,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (10, '2021_12_22_133812_create_admins_table', 1),
 (11, '2021_12_22_192735_create_categories_table', 1),
 (12, '2021_12_24_222834_create_products_table', 2),
-(13, '2021_12_26_180755_create_carts_table', 3),
-(14, '2021_12_27_021122_create_orders_table', 3);
+(22, '2021_12_26_180755_create_carts_table', 3),
+(23, '2021_12_27_021122_create_orders_table', 3);
 
 -- --------------------------------------------------------
 
@@ -161,7 +173,7 @@ CREATE TABLE `orders` (
 --
 
 INSERT INTO `orders` (`id`, `fname`, `lname`, `email`, `phone`, `add`, `country`, `zip_code`, `city`, `bill`, `order_id`, `user_id`, `delivery`, `created_at`, `updated_at`) VALUES
-(1, 'Mahfujur Rahman', 'Afnan', 'afnan@gmail.com', '01779007937', 'Ja-103', 'Bangladesh', '1212', 'Dhaka', '400', '1753561222', '3', 'false', '2021-12-27 09:55:03', '2021-12-27 09:55:03');
+(2, 'Mohammad', 'Rafin', 'rafin@gmail.com', '01779007937', 'Ja-103, Mohakhali', 'Bangladesh', '1212', 'Dhaka', '160', '736243078', '2', 'false', '2021-12-27 18:02:14', '2021-12-27 18:02:14');
 
 -- --------------------------------------------------------
 
@@ -220,7 +232,8 @@ INSERT INTO `products` (`id`, `product_name`, `product_slug`, `product_desc`, `r
 (1, 'Napa Extra 500 mg', 'napa-extra-500', 'Napa EXTRA may be unsafe to use during pregnancy. Although there are limited studies in humans', '2', '1.5', '1100', '1640460775.jpg', '2021-12-25 13:32:55', '2021-12-25 13:33:08'),
 (2, 'Esonix 20 mg', 'esonix-20', 'To relieve from chronic heartburn symptoms and other symptoms associated with GERD', '8', '6', '500', '1640462278.jpg', '2021-12-25 13:34:13', '2021-12-25 13:57:58'),
 (3, 'Seclo 40 mg', 'seclo-40', 'Benign gastric and duodenal ulcer: 20 mg once daily for 4 weeks in duodenal ulceration, 8 weeks in gastric ulceration', '6', '4.5', '600', '1640462296.jpg', '2021-12-25 13:35:19', '2021-12-25 13:58:16'),
-(4, 'Maxpro 20 mg', 'maxpro-20', 'To relieve from chronic heartburn symptoms and other symptoms associated with GERD', '7', '5', '800', '1640460975.jpg', '2021-12-25 13:36:15', '2021-12-25 13:36:15');
+(4, 'Maxpro 20 mg', 'maxpro-20', 'To relieve from chronic heartburn symptoms and other symptoms associated with GERD', '7', '5', '800', '1640460975.jpg', '2021-12-25 13:36:15', '2021-12-25 13:36:15'),
+(5, 'Fexo 120 mg', 'fexo-120', 'Fexo 120 mg Tablet is an effective and potent anti-allergic medicine consists of Fexofenadine.', '10', '8', '400', '1640556077.jpg', '2021-12-26 16:01:17', '2021-12-26 16:01:17');
 
 -- --------------------------------------------------------
 
@@ -334,7 +347,7 @@ ALTER TABLE `admins`
 -- AUTO_INCREMENT for table `carts`
 --
 ALTER TABLE `carts`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `categories`
@@ -352,13 +365,13 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
@@ -370,7 +383,7 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `users`

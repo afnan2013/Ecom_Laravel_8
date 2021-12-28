@@ -15,8 +15,8 @@ class OrderController extends Controller
      */
     public function index()
     {
-        $result['data'] = Order:: All();
-        return view('admin/dashboard', $result);
+        $result['data'] = Order:: where(['user_id'=> session('USER_ID')])->get();
+        return view('user/order', $result);
     }
 
     /**
@@ -47,6 +47,8 @@ class OrderController extends Controller
 
         $data = Cart::where(['user_id'=>session('USER_ID'), 'order_active'=>'false'])
                         ->update(['order_active' => 'true', 'order_id'=>$random_number]);
+        
+        return redirect('order');
     }
 
     /**
@@ -55,10 +57,27 @@ class OrderController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function order_detail(Request $request, $id='', $admin=false)
     {
-        //
+        if ($id >0){
+            $result['data'] = Cart::join('products', 'products.id', '=', 'carts.product_id')
+                        ->where(['carts.order_id'=>$id])->get();
+
+            $sum =0;
+            foreach ($result['data'] as $list){
+                $sum += $list->price;
+            }
+            $result['sum'] = $sum;
+            if ($admin){
+                return view('admin/order_details', $result);
+            }else{
+                return view('user/order_detail', $result);
+            }
+            
+        }
     }
+
+
 
     /**
      * Display the specified resource.
@@ -66,9 +85,17 @@ class OrderController extends Controller
      * @param  \App\Models\Order  $order
      * @return \Illuminate\Http\Response
      */
-    public function show(Order $order)
+    public function delete(Request $request, $id='')
     {
-        //
+        if($id>0){
+            $result = Order::where(['order_id'=>$id])->delete();
+            $request->session()->flash('message', 'Order Deleted Successful');
+            return redirect('order');
+        }
+    }
+    
+    public function admin_delete(Request $request, $id=''){
+
     }
 
     /**
