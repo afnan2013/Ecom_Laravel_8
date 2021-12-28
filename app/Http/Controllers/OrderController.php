@@ -68,7 +68,7 @@ class OrderController extends Controller
                 $sum += $list->price;
             }
             $result['sum'] = $sum;
-            if ($admin){
+            if ($admin=='true'){
                 return view('admin/order_details', $result);
             }else{
                 return view('user/order_detail', $result);
